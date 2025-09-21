@@ -2,8 +2,6 @@ import React from 'react'
 import ShimmerButton from './ui/ShimmerButton'
 import { FaLocationArrow } from 'react-icons/fa'
 import { socialMedia } from '../data'
-import { div } from 'motion/react-client'
-import { link } from 'fs'
 
 const Footer = () => {
   return (
@@ -35,7 +33,7 @@ const Footer = () => {
                     items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75
                     bg-black-200 border rounded-lg border-black-300'>
                         <a href={profile.link} target='_blank' rel="noopener noreferrer">
-                            <img src={profile.img} alt={profile.id}
+                            <img src={profile.img}
                             width={20} height={20}></img>
                         </a>
                     </div>
