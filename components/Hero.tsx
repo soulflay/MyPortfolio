@@ -3,7 +3,7 @@ import { Spotlight } from './ui/spotlight-new'
 import { cn } from '../lib/utils'
 import { TextGenerateEffect } from './ui/textGenerateEffect'
 import ShimmerButton from './ui/ShimmerButton'
-import { TiDownload, TiDownloadOutline, TiLocationArrow } from 'react-icons/ti'
+import { TiDownload, TiLocationArrow } from 'react-icons/ti'
 
 
 const Hero = () => {
