@@ -10,11 +10,6 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      fontFamily: {
-      poppins: 'var(--font-poppins)',
-      geist: 'var(--font-geist-sans)',
-      mono: 'var(--font-geist-mono)',
-    },
       animation: {
         shimmer: "shimmer 2s linear infinite",
       },

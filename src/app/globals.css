@@ -69,8 +69,7 @@
   }
 }
 
-
-
-html {
-  font-family: var(--font-poppins), sans-serif;
+html,
+body {
+  @apply bg-white text-black;
 }
