@@ -29,7 +29,7 @@ const Hero = () => {
         <p className="relative z-20 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-8 text-4xl font-bold text-transparent sm:text-7xl"></p>
       </div>
       
-      <div className='flex justify-center relative mb-40 my-12 z-10 '>
+      <div className='flex justify-center relative mb-40 my-11 z-10 '>
         <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
           <h2 className="uppercase  tracking-widest text-center text-[10px] max-w-80">
             Dynamic Web Apps with Next.js
@@ -37,25 +37,25 @@ const Hero = () => {
 
           <TextGenerateEffect className="font-semibold text-center md:text-4xl lg:text-4xl
           dark:text-white text-black leading-snug tracking-[1.5px]"
-          words="Hi, I'm HAMEED AYANNIYI, a Frontend Developer based in London." />
+          words="Hi, I'm HAMEED AYANNIYI, a Frontend Web Developer based in London." />
           
         
         
-          <p className='text-white text-center md:tracking-wide  mb-3 text-[16px]'>I specialize in building modern interfaces that not only look great but also create real business impact.</p>
-          <div className='flex gap-5'>
+          <p className='text-white text-center md:tracking-wide mb-3 text-[16px]'>I specialize in building modern interfaces that not only look great but also create real business impact.</p>
+          <div className='flex sm:gap-5 gap-3 mt-3'>
             <a href="#projects">
               <ShimmerButton 
                 title='Show my work'
-                icon={<TiLocationArrow className='text-xl text-white'/>}
+                icon={<TiLocationArrow className='text-[19px] text-white'/>}
                 position={'right'}  
-                otherClasses='text-[15px]' /> 
+                otherClasses='text-[13px] sm:text-[15px]' /> 
             </a>
             <a href="Hameed_Ayanniyi_CV.pdf" target='_blank' rel="noopener noreferrer">
               <ShimmerButton 
                 title='Download CV'
-                icon={<TiDownload className='text-xl text-white'/>}
+                icon={<TiDownload className='text-[16px] text-white'/>}
                 position={'right'}  
-                otherClasses='text-[15px]' /> 
+                otherClasses='text-[13px] sm:text-[15px]' /> 
             </a>
 
           </div>
