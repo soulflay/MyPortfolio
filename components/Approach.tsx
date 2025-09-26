@@ -66,6 +66,56 @@ const Approach = () => {
   );
 }
 
+// const Card = ({
+//   title,
+//   icon,
+//   children,
+//   description
+// }: {
+//   title: string;
+//   icon: React.ReactNode;
+//   children?: React.ReactNode;
+//   description?: string;         
+// }) => {
+//   const [hovered, setHovered] = React.useState(false);
+//   return (
+//     <div
+//       onMouseEnter={() => setHovered(true)}
+//       onMouseLeave={() => setHovered(false)}
+//       className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full  mx-3 p-4 lg:h-[28rem] relative rounded-3xl"
+//     >
+//       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+//       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+//       <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+//       <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+
+//       <AnimatePresence>
+//         {hovered && (
+//           <motion.div
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             className="h-full w-full absolute inset-0"
+//           >
+//             {children}
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+
+//       <div className="relative z-20">
+//         <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+//           {icon}
+//         </div>
+//         <h2 className="dark:text-white text-2xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card: group-hover/canvas-card:-translate-y-2 transition duration-200">
+//           {title}
+//         </h2>
+//         <h2 className="dark:text-white text-sm opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-semi-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
+//           {description}
+//         </h2>
+//       </div>
+//     </div>
+//   );
+// };
+
 const Card = ({
   title,
   icon,
@@ -78,22 +128,34 @@ const Card = ({
   description?: string;         
 }) => {
   const [hovered, setHovered] = React.useState(false);
+
+  // Toggle for mobile tap
+  const handleToggle = () => {
+    if (window.innerWidth < 1024) { // mobile/tablet breakpoint
+      setHovered((prev) => !prev);
+    }
+  };
+
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full  mx-3 p-4 lg:h-[28rem] relative rounded-3xl"
+      onClick={handleToggle} // ✅ Works on mobile
+      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-3 p-4 lg:h-[28rem] relative rounded-3xl cursor-pointer"
     >
+      {/* Decorative corners */}
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
 
+      {/* Animated background */}
       <AnimatePresence>
         {hovered && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="h-full w-full absolute inset-0"
           >
             {children}
@@ -101,20 +163,27 @@ const Card = ({
         )}
       </AnimatePresence>
 
-      <div className="relative z-20">
-        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+      {/* Content */}
+      <div className="relative z-20 text-center">
+        <div className={`absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition duration-200 ${hovered ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"}`}>
           {icon}
         </div>
-        <h2 className="dark:text-white text-2xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card: group-hover/canvas-card:-translate-y-2 transition duration-200">
+
+        <h2 className={`dark:text-white text-2xl font-bold mt-4 transition duration-200 ${hovered ? "opacity-100 -translate-y-2" : "opacity-0"}`}>
           {title}
         </h2>
-        <h2 className="dark:text-white text-sm opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-semi-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 ">
+
+        <p className={`dark:text-white text-sm mt-4 transition duration-200 ${hovered ? "opacity-100 -translate-y-2" : "opacity-0"}`}>
           {description}
-        </h2>
+        </p>
       </div>
     </div>
   );
 };
+
+
+
+
 
 const AceternityIcon = ({order}: { order: string }) => {
   return (
