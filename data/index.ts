@@ -173,7 +173,7 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer Intern",
+    title: "Frontend Engineer",
     desc: "Built dynamic, reusable components with React, improving UI consistency and reducing feature delivery time for an insurance platform.",    className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
